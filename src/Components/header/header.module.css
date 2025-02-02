@@ -1,0 +1,41 @@
+
+/* Header styling */
+.header {
+    background-color: #333;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+
+  }
+
+/* Authentication buttons container */
+.auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Buttons styling */
+.auth_btn {
+  padding: 10px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #555;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.auth_btn:hover {
+  background-color: #777;
+}
+
+@media (max-width: 480px) {
+  .auth_btn {
+    font-size: 14px;
+    padding: 5px;
+}}
+
