@@ -26,6 +26,8 @@
 
 .dropdown {
   position: relative;
+  width:100%;
+
 }
 
 .dropdownMenu {
@@ -39,10 +41,13 @@
   flex-direction: column;
   z-index: 20;
   border-radius: 5px;
-  min-width: 200px;
+  min-width: 300px;
+
 }
 
+
 .dropdownItem {
+
   display: flex;
   align-items: center;
   margin-bottom: 10px;
