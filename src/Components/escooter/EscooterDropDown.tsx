@@ -1,3 +1,4 @@
+import {categories} from '@/utils/data/data';
 import Link from 'next/link';
 import React from 'react';
 
@@ -7,14 +8,6 @@ interface EScooterDropdownProps {
 }
 
 const EScooterDropdown: React.FC<EScooterDropdownProps> = ({ handleDropdown, dropdown }) => {
-  const categories = [
-    { name: 'E-Scooter Einstieg', href: '/escooter/einstieg' },
-    { name: 'E-Scooter Leistung', href: '/escooter/leistung' },
-    { name: 'Mit Straßenzulassung', href: '/escooter/strassenzulassung' },
-    { name: 'Ohne Straßenzulassung', href: '/escooter/ohne-strassenzulassung' },
-    { name: 'Offroad E-Scooter', href: '/escooter/offroad' },
-    { name: 'E-Scooter mit Sitz', href: '/escooter/sitz' },
-  ];
 
   return (
     <div

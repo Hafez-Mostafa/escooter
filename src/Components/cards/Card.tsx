@@ -2,17 +2,12 @@
 import Image from 'next/image';
 import { FC } from 'react';
 import Link from 'next/link';
+import { ICardData } from '@/utils/types/types';
 
-interface CardProps {
-  title: string;
-  imageSrc: string;
-  link: string;
-  preis: number;
 
-}
   // <div className=" ">
   
-const Card: FC<CardProps> = ({ title, imageSrc, link ,preis}) => {
+const Card: FC<ICardData> = ({ title, imageSrc, link ,preis}) => {
   return (
     <Link href={link} >
       <div className="overflow-hidden rounded-2xl mb-4 relative  min-h-300 min-w-300">
