@@ -66,6 +66,7 @@ model Admin {
   id        String    @id @default(uuid())
   fullName  String
   email     String    @unique
+  password  String
   role      AdminRole
   createdAt DateTime  @default(now()) // Timestamp for when the product was created
   updatedAt DateTime  @updatedAt // Timestamp for when the product was last updated
@@ -92,7 +93,7 @@ enum PaymentMethod {
 }
 
 enum AdminRole {
-  MANAGER
-  SUPPORT
+  ADMIN
+  MODERATOR
   INVENTORY
 }

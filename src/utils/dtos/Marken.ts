@@ -31,4 +31,7 @@
     stock?: number;
     description?: string; // Additional details (optional)
   }
+
+
+  
   
