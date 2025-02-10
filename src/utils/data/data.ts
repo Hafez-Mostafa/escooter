@@ -1,3 +1,4 @@
+import { ICardData } from "../types/types";
 
  export  const categories = [
     { name: 'E-Scooter Einstieg', href: '/escooter/einstieg' },
@@ -10,11 +11,12 @@
 
 
 
-  export const cardData= [
+  export const cardData: ICardData[]= [
     {
       title: 'E-Scooter kaufen bei Weroll',
       imageSrc: '/images/scooter1.png',
-      preis:250,link: '/escooter-kaufen',
+      preis:220,
+      link: '/escooter-kaufen',
     },
     {
       title: 'E-Scooter mit Straßenzulassung',
@@ -34,7 +36,7 @@
     {
       title: 'Zubehör für E-Scooter',
       imageSrc: '/images/scooter5.png',
-      preis:250,link: '/zubehoer',
+      preis:150,link: '/zubehoer',
     },
     {
       title: 'E-Scooter für Kinder',

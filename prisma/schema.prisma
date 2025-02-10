@@ -1,0 +1,98 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Customer {
+  id        String   @id @default(uuid())
+  fullName  String
+  email     String   @unique
+  phone     String
+  address   String
+  orders    Order[]
+  createdAt DateTime @default(now()) // Timestamp for when the product was created
+  updatedAt DateTime @updatedAt // Timestamp for when the product was last updated
+}
+
+model Scooter {
+  id          String   @id @default(uuid())
+  brand       String
+  model       String
+  price       Float
+  stock       Int
+  description String
+  orders      Order[]
+  createdAt   DateTime @default(now()) // Timestamp for when the product was created
+  updatedAt   DateTime @updatedAt // Timestamp for when the product was last updated
+}
+
+model Order {
+  id         String      @id @default(uuid())
+  customerId String
+  scooterId  String
+  orderDate  DateTime    @default(now())
+  totalPrice Float
+  status     OrderStatus @default(PENDING)
+  createdAt  DateTime    @default(now()) // Timestamp for when the product was created
+  updatedAt  DateTime    @updatedAt // Timestamp for when the product was last updated
+
+  customer Customer @relation(fields: [customerId], references: [id])
+  scooter  Scooter  @relation(fields: [scooterId], references: [id])
+  payment  Payment?
+}
+
+model Payment {
+  id        String        @id @default(uuid())
+  orderId   String        @unique
+  amount    Float
+  method    PaymentMethod
+  status    PaymentStatus @default(PENDING)
+  order     Order         @relation(fields: [orderId], references: [id])
+  createdAt DateTime      @default(now()) // Timestamp for when the product was created
+  updatedAt DateTime      @updatedAt // Timestamp for when the product was last updated
+}
+
+model Admin {
+  id        String    @id @default(uuid())
+  fullName  String
+  email     String    @unique
+  role      AdminRole
+  createdAt DateTime  @default(now()) // Timestamp for when the product was created
+  updatedAt DateTime  @updatedAt // Timestamp for when the product was last updated
+}
+
+enum OrderStatus {
+  PENDING
+  SHIPPED
+  DELIVERED
+  CANCELED
+}
+
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+}
+
+enum PaymentMethod {
+  CREDIT_CARD
+  PAYPAL
+  BANK_TRANSFER
+  CASH_ON_DELIVERY
+}
+
+enum AdminRole {
+  MANAGER
+  SUPPORT
+  INVENTORY
+}

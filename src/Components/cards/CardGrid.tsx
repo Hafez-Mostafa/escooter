@@ -2,12 +2,12 @@
 import { FC } from 'react';
 import Card from './Card';
 import { cardData } from '@/utils/data/data';
-import { ICardData } from '@/utils/types/types';
+// import { ICardData } from '@/utils/types/types';
 
 
 const CardGrid: FC = () => {
   // Daten für mehrere Karten
-  const cards: ICardData[] = cardData;
+  const cards= cardData;
     return (
     <div className='grid grid-cols-2 col-span-4 gap-4'>
       {cards.map((card, index) => (
