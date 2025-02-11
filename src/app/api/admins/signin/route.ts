@@ -41,10 +41,22 @@ export async function POST(req: NextRequest) {
   }
 }
 
-
-// Get all admins
-export async function GET() {
+/* @description Get all admins
+ * @route GET ~/api/admins
+ * @access public
+ */
+export async function GET(): Promise<NextResponse> {
+  try {
     const admins = await prisma.admin.findMany();
-    return NextResponse.json(admins);
+    return NextResponse.json(admins, { status: 200 });
+  } catch (error) {
+    console.error("Error fetching admins:", error);
+    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
   }
+}
+// // Get all admins
+// export async function GET() {
+//     const admins = await prisma.admin.findMany();
+//     return NextResponse.json(admins);
+//   }
   

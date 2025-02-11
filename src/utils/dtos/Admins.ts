@@ -5,6 +5,10 @@ export interface SignupDTO {
     password: string;
     role: "ADMIN" | "MODERATOR"; // Adjust roles as needed
   }
+  export interface IdSignUpDTO {
+    id: string;
+  }
+  
   
   export interface SigninDTO {
     email: string;
